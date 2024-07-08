@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: centre;
+  flex-grow: 1;
+  height: 1000px;
+}
+#Grid {
+  width: 900px;
+  height: 900px;
+  flex-basis: 900px;
+  display: flex;
+  flex-direction: row;
+}
+.vdivs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.hdivs {
+  display: flex;
+  flex-grow: 1;
+  width: 30px;
+  height: 30px;
+  border-width: 3px;
+  border-color: black;
+}

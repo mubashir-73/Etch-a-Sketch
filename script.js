@@ -1,0 +1,12 @@
+const grd = document.querySelector("#Grid");
+let size = 16;
+for (let i = 0; i <= size; i++) {
+  const columndiv = document.createElement("div");
+  columndiv.classList.add("vdivs");
+  for (let j = 0; j <= size; j++) {
+    const subdiv = document.createElement("div");
+    subdiv.classList.add("hdivs");
+    columndiv.appendChild(subdiv);
+  }
+  grd.appendChild(columndiv);
+}
