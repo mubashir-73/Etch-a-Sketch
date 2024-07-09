@@ -1,7 +1,7 @@
 body {
   display: flex;
   align-items: center;
-  justify-content: centre;
+  justify-content: space-around;
   flex-grow: 1;
   height: 1000px;
 }
@@ -17,7 +17,6 @@ body {
   flex-direction: column;
   flex-grow: 1;
 }
-
 .hdivs {
   display: flex;
   flex-grow: 1;
@@ -26,3 +25,4 @@ body {
   border-width: 3px;
   border-color: black;
 }
+/*TODO:  Also make the individual divs squares.*/

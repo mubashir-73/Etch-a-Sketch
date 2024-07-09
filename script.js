@@ -10,3 +10,10 @@ for (let i = 0; i <= size; i++) {
   }
   grd.appendChild(columndiv);
 }
+function calculateDimensions(size) {
+  let area = (900 * 900) / (size * size);
+  let dimensions = Math.sqrt(area);
+  console.log(dimensions);
+  return dimensions;
+}
+calculateDimensions(size);
