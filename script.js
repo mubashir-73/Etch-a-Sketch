@@ -5,6 +5,8 @@ for (let i = 0; i <= size; i++) {
   columndiv.classList.add("vdivs");
   for (let j = 0; j <= size; j++) {
     const subdiv = document.createElement("div");
+    subdiv.style.width = calculateDimensions(size);
+    subdiv.style.height = calculateDimensions(size);
     subdiv.classList.add("hdivs");
     columndiv.appendChild(subdiv);
   }
@@ -16,4 +18,4 @@ function calculateDimensions(size) {
   console.log(dimensions);
   return dimensions;
 }
-calculateDimensions(size);
+/*TODO:  Add event listener to each div.*/
