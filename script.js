@@ -5,17 +5,25 @@ for (let i = 0; i <= size; i++) {
   columndiv.classList.add("vdivs");
   for (let j = 0; j <= size; j++) {
     const subdiv = document.createElement("div");
-    subdiv.style.width = calculateDimensions(size);
-    subdiv.style.height = calculateDimensions(size);
+    let side = calculateDimensions(size);
+    subdiv.style.width = side;
+    subdiv.style.height = side;
+    subdiv.style.borderColor = "black";
     subdiv.classList.add("hdivs");
     columndiv.appendChild(subdiv);
   }
   grd.appendChild(columndiv);
 }
 function calculateDimensions(size) {
-  let area = (900 * 900) / (size * size);
-  let dimensions = Math.sqrt(area);
-  console.log(dimensions);
-  return dimensions;
+  return Math.sqrt((900 * 900) / (size * size));
 }
-/*TODO:  Add event listener to each div.*/
+
+let block = document.querySelectorAll(".hdivs");
+
+block.forEach((element) => {
+  element.addEventListener("mouseover", () => {
+    element.style.backgroundColor = "black";
+  });
+});
+
+/*TODO: Add Function to take size of grid from user.*/
