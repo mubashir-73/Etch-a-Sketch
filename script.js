@@ -20,19 +20,24 @@ function generateGrid(size = 16) {
 function calculateDimensions(size) {
   return Math.sqrt((900 * 900) / (size * size));
 }
-
+let q = 0;
 function activateTiles() {
   let block = document.querySelectorAll(".hdivs");
 
   block.forEach((element) => {
     element.addEventListener("mouseover", () => {
-      element.style.backgroundColor = "black";
+      q += 10;
+      element.style.backgroundColor = `rgb(0 0 0 / ${q}%)`;
     });
   });
+  q = 0;
 }
 
 function destroyGrid() {
-  const grd = document.querySelector("#Grid");
+  const grd = document.querySelectorAll(".vdivs");
+  grd.forEach((element) => {
+    element.parentNode.removeChild(element);
+  });
 }
 generateGrid();
 const btn = document.querySelector("#buttons");
@@ -41,4 +46,4 @@ btn.addEventListener("click", () => {
   destroyGrid();
   generateGrid(size);
 });
-/*TODO: Add a function that destroys grid before creating next grid.*/
+/*TODO: To make the opacity of each div increase gradually.*/
