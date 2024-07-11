@@ -6,10 +6,15 @@ body {
   flex-grow: 1;
   height: 1000px;
 }
+
+#top {
+  display: flex;
+  flex-direction: column;
+}
 #Grid {
-  width: 900px;
-  height: 900px;
-  flex-basis: 900px;
+  width: 1000px;
+  height: 1000px;
+  flex-basis: 1000px;
   display: flex;
   flex-direction: row;
 }
