@@ -26,11 +26,17 @@ function activateTiles() {
 
   block.forEach((element) => {
     element.addEventListener("mouseover", () => {
-      q += 10;
-      element.style.backgroundColor = `rgb(0 0 0 / ${q}%)`;
+      element.style.backgroundColor = randomColorGenerator();
     });
   });
   q = 0;
+}
+
+function randomColorGenerator() {
+  var o = Math.round;
+  var r = Math.random;
+  var s = 255;
+  return "rgba(" + o(r() * s) + "," + o(r() * s) + "," + o(r() * s) + ")";
 }
 
 function destroyGrid() {
