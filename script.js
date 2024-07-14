@@ -1,21 +1,27 @@
 let size;
 function generateGrid(size = 16) {
-  const grd = document.querySelector("#Grid");
-  for (let i = 0; i <= size; i++) {
-    const columndiv = document.createElement("div");
-    columndiv.classList.add("vdivs");
-    for (let j = 0; j <= size; j++) {
-      const subdiv = document.createElement("div");
-      let side = calculateDimensions(size);
-      subdiv.style.width = side;
-      subdiv.style.height = side;
-      subdiv.style.borderColor = "black";
-      subdiv.classList.add("hdivs");
-      columndiv.appendChild(subdiv);
+  if (size < 100) {
+    const grd = document.querySelector("#Grid");
+    for (let i = 0; i <= size; i++) {
+      const columndiv = document.createElement("div");
+      columndiv.classList.add("vdivs");
+      for (let j = 0; j <= size; j++) {
+        const subdiv = document.createElement("div");
+        let side = calculateDimensions(size);
+        subdiv.style.width = side;
+        subdiv.style.height = side;
+        subdiv.style.borderColor = "black";
+        subdiv.classList.add("hdivs");
+        columndiv.appendChild(subdiv);
+      }
+      grd.appendChild(columndiv);
     }
-    grd.appendChild(columndiv);
+    activateTiles();
+  } else {
+    alert("Size must be lower than 100!");
+    size = prompt("Enter a different value!");
+    generateGrid(size);
   }
-  activateTiles();
 }
 function calculateDimensions(size) {
   return Math.sqrt((900 * 900) / (size * size));
@@ -27,9 +33,17 @@ function activateTiles() {
   block.forEach((element) => {
     element.addEventListener("mouseover", () => {
       element.style.backgroundColor = randomColorGenerator();
+      element.style.opacity = increaseOpacity(element);
     });
   });
   q = 0;
+}
+
+function increaseOpacity(element) {
+  const css = window.getComputedStyle(element);
+  let opacity = css.opacity;
+  opacity += 10;
+  return opacity;
 }
 
 function randomColorGenerator() {
@@ -52,4 +66,4 @@ btn.addEventListener("click", () => {
   destroyGrid();
   generateGrid(size);
 });
-/*TODO: To make the opacity of each div increase gradually.*/
+/*TODO: Find a method to increase opacity of the blocks..*/
